@@ -29,12 +29,14 @@ def apMode():
     print("Ap aktiv !!")                 # Debugging besked
 
 def connectMode():
+    ap.disconnect()
     n = network.WLAN(network.STA_IF)
     n.active(True)
     with open("credentials.txt",'r') as f:
         settings = [i.rstrip() for i in f]
     ssid = settings[0]
     password = settings[1]
+    print(f"SSID: {ssid}, Password: {password}")
     n.connect(str(ssid),str(password))
     while not n.isconnected():
         pass
