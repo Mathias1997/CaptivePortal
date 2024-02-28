@@ -1,4 +1,4 @@
-__author__ = "Ib Helmer Nielsen"
+__author__ = "gruppe 4"
 __copyright__ = "Copyright 2024, IT-Tek"
 __credits__ = ["DonskyTech"]
 __license__ = "GPL"
