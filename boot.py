@@ -17,11 +17,11 @@ from machine import Pin, I2C  # ESP32 hardware
 import utime                  # Time lib
 import network                # Network lib
 
+SSID = "IHP-AP-GR4"
+PW = "MaaGodt*7913"
+ap = network.WLAN(network.AP_IF)
 def apMode():
-    SSID = "IHP-AP-GR4"
-    PW = "MaaGodt*7913"
-
-    ap = network.WLAN(network.AP_IF)     # Opretter en access point interface
+     # Opretter en access point interface
     ap.active(True)                      # Aktiverer interface
     ap.config(essid=SSID, password=PW)   # Sætter SSID og adgangskode
     while ap.active() == False:          # Vent til ap aktiv
