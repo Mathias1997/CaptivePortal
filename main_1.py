@@ -23,6 +23,7 @@ display.text('SSID:'+SSID,0,10,1)
 display.text('PW:'+PW ,0,20,1)
 display.text('ip:'+ap.ifconfig()[0],0,30,1)
 display.text('Gruppe4', 0, 40, 1)
+display.text('test',0,50,1)
 if n.isconnected():
     display.text('Connected to network',0,50,1)
 
