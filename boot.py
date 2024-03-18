@@ -17,6 +17,7 @@ from machine import Pin, I2C  # ESP32 hardware
 import utime                  # Time lib
 import network                # Network lib
 
+
 SSID = "IHP-AP-GR4"
 PW = "MaaGodt*7913"
 ap = network.WLAN(network.AP_IF)
@@ -29,7 +30,10 @@ def apMode():
     print("Ap aktiv !!")                 # Debugging besked
 
 def connectMode():
-    ap.disconnect()
+    try:
+        ap.disconnect()
+    except:
+        pass
     n = network.WLAN(network.STA_IF)
     n.active(True)
     with open("credentials.txt",'r') as f:
@@ -52,3 +56,4 @@ except:
 else:
     connectMode()
     
+
