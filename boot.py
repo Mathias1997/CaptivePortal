@@ -9,6 +9,7 @@ __status__ = "Development"
 # This file is executed on every boot (including wake-boot from deepsleep)
 import esp
 import os
+from ota import OTAUpdater
 esp.osdebug(None)
 #import webrepl
 #webrepl.start()
@@ -21,6 +22,7 @@ import network                # Network lib
 SSID = "IHP-AP-GR4"
 PW = "MaaGodt*7913"
 ap = network.WLAN(network.AP_IF)
+firmware_url = "https://raw.githubusercontent.com/Mathias1997/CaptivePortal/main/"
 def apMode():
      # Opretter en access point interface
     ap.active(True)                      # Aktiverer interface
@@ -41,6 +43,8 @@ def connectMode():
     ssid = settings[0]
     password = settings[1]
     print(f"SSID: {ssid}, Password: {password}")
+    ota_updater = OTAUpdater(ssid, password, firmware_url,"main.py")
+    ota_updater.download_and_install_update_if_available()
     n.connect(str(ssid),str(password))
     while not n.isconnected():
         pass
@@ -56,4 +60,5 @@ except:
 else:
     connectMode()
     
+
 
