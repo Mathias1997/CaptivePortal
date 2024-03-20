@@ -4,7 +4,7 @@ import time					  # Time lib
 import network				  # Network lib
 from microdot import Microdot
 
-
+#lololo jeg vil hjem
 # init OLED
 # using default address 0x3C
 #i2c = I2C(sda=Pin(4), scl=Pin(5))
